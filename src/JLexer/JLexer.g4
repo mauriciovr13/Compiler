@@ -8,9 +8,8 @@ DIGIT : '0'..'9';
 ESPACE : ('\t' | ' ' | '\r' | '\n' | '\u000C')+ -> skip;
 COMMENT : '//' (~('\n' | '\r'))* -> skip;
 
-NUMBER : ('1'..'9') (DIGIT)*;
-INTEGER : '0'..'9'+;
-REAL_NUMBER: INTEGER '.' INTEGER+;
+INTEGER : ('-' | '+')? ('1'..'9') (DIGIT)*;
+REAL_NUMBER: INTEGER '.' DIGIT+;
 
 
 PACKAGE : 'package' ;
@@ -33,7 +32,10 @@ INSTANCEOF : 'instanceof';
 NEW : 'new';
 
 PRIMITIVE : 'boolean';
-INTEGRAL_TYPE : 'byte' | 'short' | 'int' | 'long' ;
+INT : 'int';
+BYTE : 'byte';
+SHORT : 'short';
+LONG : 'long';
 CHAR : 'char';
 REFERENCE_TYPE : 'String';
 STRING : '"' ( ~('\n') )* '"';
@@ -80,3 +82,5 @@ DOT_C : ';';
 SYMBOL : '@';
 
 ID : LETTER (LETTER| DIGIT | '_')*;
+
+ERROR : .;
