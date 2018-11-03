@@ -1,4 +1,4 @@
-// Generated from C:/Users/Maurício Vieira/IdeaProjects/LexicalAnalyzer/src/JLexer\JLexer.g4 by ANTLR 4.7
+// Generated from C:/Users/Maurï¿½cio Vieira/IdeaProjects/Compiler/src/JLexer\JLexer.g4 by ANTLR 4.7
 package JLexer;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;

@@ -16,10 +16,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class LexicalAnalyzer {
+public class Compiler {
 
     public static void main(String[] args) throws IOException {
-        String fileName = "C:\\Users\\Maurício Vieira\\IdeaProjects\\LexicalAnalyzer/teste.java";
+        String fileName = "C:\\Users\\Maurício Vieira\\IdeaProjects\\Compiler\\teste.java";
 
         File file = new File(fileName);
 
