@@ -21,7 +21,7 @@ public class AFD {
     public void escreverArquivo() {
         BufferedWriter bw = null;
         try {
-            bw = new BufferedWriter(new FileWriter("teste.txt"));
+            bw = new BufferedWriter(new FileWriter("teste.dot"));
 
             bw.write("digraph G { \n ");
 

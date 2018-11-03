@@ -14,11 +14,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class LexicalAnalyzer {
 
     public static void main(String[] args) throws IOException {
-        String fileName = "/home/mauricio/Documents/Compiladores/teste.java";
+        String fileName = "C:\\Users\\Maurício Vieira\\IdeaProjects\\LexicalAnalyzer/teste.java";
 
         File file = new File(fileName);
 
@@ -27,34 +28,13 @@ public class LexicalAnalyzer {
         fis = new FileInputStream(file);
 
         JLexer scanner = new JLexer(CharStreams.fromStream(fis));
-        /*
-        scanner.addErrorListener(new ANTLRErrorListener() {
-            @Override
-            public void syntaxError(Recognizer<?, ?> recognizer, Object o, int i, int i1, String s, RecognitionException e) {
-                System.out.println(s + " na linha " + i + ":" + i1 + " " );
-            }
 
-            @Override
-            public void reportAmbiguity(Parser parser, DFA dfa, int i, int i1, boolean b, BitSet bitSet, ATNConfigSet atnConfigSet) {
-
-            }
-
-            @Override
-            public void reportAttemptingFullContext(Parser parser, DFA dfa, int i, int i1, BitSet bitSet, ATNConfigSet atnConfigSet) {
-
-            }
-
-            @Override
-            public void reportContextSensitivity(Parser parser, DFA dfa, int i, int i1, int i2, ATNConfigSet atnConfigSet) {
-
-            }
-        });
-        */
         CommonTokenStream allTokensGenerated = new CommonTokenStream(scanner);
 
         allTokensGenerated.fill();
 
         List<Token> allTokens = allTokensGenerated.getTokens();
+
 
         TabelaDeSimbolos tabela = new TabelaDeSimbolos();
 
@@ -65,14 +45,16 @@ public class LexicalAnalyzer {
 
 
         for (Token t: allTokens) {
-            if (t.getType() != 71) {
+            if (t.getType() != 1 && t.getType()!= 2 && t.getType()!=3) {
+                //token normal
                 System.out.format("%-18s %-7d %-7d %-7d\n", t.getText(), t.getType(), t.getLine(), t.getCharPositionInLine());
             }
             else {
                 System.out.println("Token '" + t.getText() +"' não reconhecido na linha " + t.getLine() + ":" + t.getCharPositionInLine());
             }
 
-            if ((t.getType() == 70) || (t.getType() == 3) || (t.getType() == 4)) {
+            if ((t.getType() == 77) || (t.getType() == 78) || (t.getType() == 79) || (t.getType() == 80) || (t.getType() == 81)
+                    || (t.getType() == 82) || (t.getType() == 83)|| (t.getType() == 84) ) {
                 Simbolo s = new Simbolo(t.getText(), t.getType(), t.getTokenIndex());
                 tabela.adicionarSimbolo(s);
 
