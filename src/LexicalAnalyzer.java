@@ -45,7 +45,7 @@ public class LexicalAnalyzer {
 
 
         for (Token t: allTokens) {
-            if (t.getType() != 1 && t.getType()!= 2 && t.getType()!=3) {
+            if (t.getType() != 11 && t.getType()!= 12 && t.getType()!= 13) {
                 //token normal
                 System.out.format("%-18s %-7d %-7d %-7d\n", t.getText(), t.getType(), t.getLine(), t.getCharPositionInLine());
             }
@@ -53,8 +53,8 @@ public class LexicalAnalyzer {
                 System.out.println("Token '" + t.getText() +"' não reconhecido na linha " + t.getLine() + ":" + t.getCharPositionInLine());
             }
 
-            if ((t.getType() == 77) || (t.getType() == 78) || (t.getType() == 79) || (t.getType() == 80) || (t.getType() == 81)
-                    || (t.getType() == 82) || (t.getType() == 83)|| (t.getType() == 84) ) {
+            if ((t.getType() == 1) || (t.getType() == 2) || (t.getType() == 3) || (t.getType() == 4) || (t.getType() == 5)
+                    || (t.getType() == 6) || (t.getType() == 7)|| (t.getType() == 87) ) {
                 Simbolo s = new Simbolo(t.getText(), t.getType(), t.getTokenIndex());
                 tabela.adicionarSimbolo(s);
 
